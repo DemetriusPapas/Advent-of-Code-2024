@@ -1,0 +1,42 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# env file
+.env
+
+# Local testing environment configurations
+docker-compose.yml
+Makefile
+
+# Obsidian configuration
+.obsidian/
+
+# Obsidian personal notes
+docs/dev/
+
+# VSCode files
+.vscode/
+
+# Local configuration files
+.directory
+
+# Advent of Code specific files
+# AoC input files
+*.in
