@@ -119,7 +119,7 @@ func Abs(x int) int {
 
 func main() {
 
-	filename := "input.in"
+	filename := "input"
 	delimiter := "   "
 
 	// Reads each line of the input into a separate string in a slice.
@@ -136,6 +136,8 @@ func main() {
 	
 	slices.Sort(loc1)
 	slices.Sort(loc2)
+
+	// Part 1
 
 	fmt.Printf("total distance: %v\n", tallyDistance(loc1, loc2))
 

@@ -39,4 +39,4 @@ docs/dev/
 
 # Advent of Code specific files
 # AoC input files
-*.in
+input
