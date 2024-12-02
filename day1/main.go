@@ -69,6 +69,39 @@ func tallyDistance(loc1, loc2 []int) (totalDistance int) {
 	return totalDistance
 }
 
+func calculateSimilarity (loc1, loc2 []int) (totalSimilarity int) {
+
+	// individual similarity of every element
+	iSimilarity := make([]int, len(loc1))
+
+	// calculate similarity for first element separately
+	for j := range loc2 {
+		if loc1[0] == loc2[j] {
+			iSimilarity[0] ++
+		}
+	}
+	totalSimilarity += loc1[0] * iSimilarity[0]
+
+	// calculate for the rest of the elements.
+	// since the list is ordered, check if an element is the same as
+	// the previous one to avoid recalculating.
+	for i := 1; i < len(loc1); i++ {
+		if loc1[i] == loc1[i-1] {
+			iSimilarity[i] = iSimilarity[i-1]
+		} else {
+			for j := range loc2 {
+				if loc1[i] == loc2[j] {
+					iSimilarity[i] ++
+				}
+			}
+		}
+
+		totalSimilarity += loc1[i] * iSimilarity[i]
+	}
+
+	return totalSimilarity
+}
+
 func splitLine(line, delimiter string) (string, string) {
 
 	split := strings.SplitN(line, delimiter, 2)
@@ -104,5 +137,10 @@ func main() {
 	slices.Sort(loc1)
 	slices.Sort(loc2)
 
-	fmt.Printf("%v\n", tallyDistance(loc1, loc2))
+	fmt.Printf("total distance: %v\n", tallyDistance(loc1, loc2))
+
+	// Part 2
+
+	fmt.Printf("total similarity: %v\n", calculateSimilarity(loc1, loc2))
+
 }
